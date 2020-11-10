@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  goal: 1
+  time_type: MyString
+  total_duration: 1.5
+  start_date: 2020-10-26
+  current_period_duration: 1
+  skill_references: MyString
+  user: one
+
+two:
+  title: MyString
+  goal: 1
+  time_type: MyString
+  total_duration: 1.5
+  start_date: 2020-10-26
+  current_period_duration: 1
+  skill_references: MyString
+  user: two

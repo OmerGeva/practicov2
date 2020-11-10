@@ -17,6 +17,11 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt'
 
 gem 'jwt'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+gem 'simple_command'
 
 
 

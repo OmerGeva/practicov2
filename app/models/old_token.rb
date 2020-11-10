@@ -1,0 +1,2 @@
+class OldToken < ApplicationRecord
+end

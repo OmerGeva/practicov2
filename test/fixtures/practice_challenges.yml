@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_duration: MyString
+  practice: one
+  challenge: one
+
+two:
+  total_duration: MyString
+  practice: two
+  challenge: two

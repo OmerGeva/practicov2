@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login]
+  skip_before_action :authorized, only: [:login]
 
   # REGISTER
   def create
@@ -15,13 +15,18 @@ class UsersController < ApplicationController
   # LOGGING IN
   def login
     @user = User.find_by(username: params[:username])
-
+    p params
     if @user && @user.authenticate(params[:password])
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "Invalid username or password"}, status: 401
     end
+  end
+
+  # LOG OUT
+  def log_out
+    render json: {user: nil}
   end
 
 
