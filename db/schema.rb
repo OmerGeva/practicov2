@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_213737) do
+ActiveRecord::Schema.define(version: 2020_11_18_121625) do
 
   create_table "challenges", force: :cascade do |t|
     t.date "start_date"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_11_05_213737) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["winner_id"], name: "index_challenges_on_winner_id"
+  end
+
+  create_table "check_ins", force: :cascade do |t|
+    t.string "duration"
+    t.string "learnings"
+    t.integer "practice_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["practice_id"], name: "index_check_ins_on_practice_id"
   end
 
   create_table "old_tokens", force: :cascade do |t|
@@ -77,9 +86,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_213737) do
   end
 
   add_foreign_key "challenges", "users", column: "winner_id"
+  add_foreign_key "check_ins", "practices"
   add_foreign_key "practice_challenges", "challenges"
   add_foreign_key "practice_challenges", "practices"
   add_foreign_key "practices", "skills"
   add_foreign_key "practices", "users"
   add_foreign_key "skills", "skill_categories"
 end
+
+

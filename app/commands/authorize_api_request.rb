@@ -6,7 +6,6 @@ class AuthorizeApiRequest
   end
 
   def call
-    p 'hello'
     logged_in_user
   end
 
@@ -15,9 +14,11 @@ class AuthorizeApiRequest
   attr_reader :headers
 
   def decoded_token
+    # not complete
     previous_keys = $redis.keys
     is_old_key = previous_keys.find { |key| key == headers['Authorization'] }
-
+    p headers
+    p headers['Authorization'][7..-1]
     if is_old_key
       nil
     elsif headers

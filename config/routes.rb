@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   post '/logout', to: 'users#log_out'
   post '/login', to: 'users#login'
 
-  resources :practices, only: [:index]
+  resources :practices, only: [:index, :create]
+  resources :skills, only: [:index]
+  resources :skill_categories, only: [:index]
+  resources :check_ins, only: [:create]
 
-
-  get '/auto_login', to: 'users#auto_login'
+  # get '/auto_login', to: 'users#auto_login'
 end

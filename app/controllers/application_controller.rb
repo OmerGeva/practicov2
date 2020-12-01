@@ -8,6 +8,7 @@ class ApplicationController < ActionController::API
 
 
   def authenticate_request
+
     @current_user = AuthorizeApiRequest.call(request.headers).result
 
     @current_user
